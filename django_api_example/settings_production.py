@@ -1,4 +1,5 @@
 from settings_base import *
+import posixpath
 
 # database settings are injected by heroku automatically
 
