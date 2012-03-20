@@ -1,7 +1,6 @@
 from tastypie.resources import ModelResource
 from tastypie import fields
 from tastypie.authentication import OAuthAuthentication
-from tastypie.authentication import Authentication
 from tastypie.authorization import DjangoAuthorization
 
 from django.contrib.auth.models import User
@@ -26,8 +25,7 @@ class TaskResource(ModelResource):
     class Meta:
         queryset = Task.objects.all()
         resource_name = 'tasks'
-        #authentication = OAuthAuthentication()
-        authentication = Authentication()
+        authentication = OAuthAuthentication()
         authorization = DjangoAuthorization()
 
     def apply_authorization_limits(self, request, object_list):
