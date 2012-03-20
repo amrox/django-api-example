@@ -6,5 +6,5 @@ class Task(models.Model):
     """Models an individual task"""
     user = models.ForeignKey(User)
     text = models.TextField()
-    complete = models.BooleanField()
+    complete = models.BooleanField(default=False)
     timestamp = models.DateTimeField(default=datetime.now())
