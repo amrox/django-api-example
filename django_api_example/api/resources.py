@@ -16,8 +16,8 @@ class UserResource(ModelResource):
         authentication = OAuthAuthentication()
         authorization = DjangoAuthorization()
 
-    def apply_authorization_limits(self, request, object_list):
-        return object_list.filter(self=request.user)
+    #def apply_authorization_limits(self, request, object_list):
+    #    return object_list.filter(self=request.user)
 
 class TaskResource(ModelResource):
     user = fields.ToOneField(UserResource, 'user', full=False)
