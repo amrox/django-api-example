@@ -149,3 +149,8 @@ LOGGING = {
         },
     }
 }
+
+# OAuth Settings
+
+OAUTH_BLACKLISTED_HOSTNAMES = ['localhost', '127.0.0.1']
+OAUTH_SIGNATURE_METHODS = ['hmac-sha1',]
