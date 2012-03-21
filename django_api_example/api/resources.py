@@ -28,6 +28,13 @@ class TaskResource(ModelResource):
         authentication = OAuthAuthentication()
         authorization = DjangoAuthorization()
 
+    # Creating per-user resources:
+    # http://django-tastypie.readthedocs.org/en/latest/cookbook.html#creating-per-user-resources
+
+    def obj_create(self, bundle, request=None, **kwargs):
+        return super(TaskResource, self).obj_create(bundle, request, user=request.user)
+
     def apply_authorization_limits(self, request, object_list):
         return object_list.filter(user=request.user)
+
 
