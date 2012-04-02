@@ -52,6 +52,16 @@ $ curl -i -x localhost:8001 http://django-api-example.herokuapp.com/api/v1/tasks
 # Step-by-step
 
 
+1. Edit [`example/client.py script`](https://github.com/amrox/django-api-example/blob/master/example/client.py), changing `consumer_key`, `consumer_secret` and `access_token_url` to the appropriate values. Run `example\client.py` to generate an access token and secret.
+
+1. Start `oauth-proxy` with your consumer and access otken information
+
+1. Post some data
+
+```
+curl -i -x localhost:8001 -X POST --data '{"text":"buy milk"}' -H "Content-Type: application/json" http://your-app.herokuapp.com/api/v1/tasks/
+```
+
 # Deployment
 
 
