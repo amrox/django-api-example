@@ -20,7 +20,7 @@ xAuth is also used by [Instapaper's Full API](http://www.instapaper.com/api/full
 
 1. [Django][django] --
 2. [Tastypie][tastypie] -- 
-3. My fork of [django-oauth-plus][django-oauth-plus]  -- 
+3. [xAuth][xAuth] via my fork of [django-oauth-plus][django-oauth-plus]  -- 
 
 # Quick Start
 
