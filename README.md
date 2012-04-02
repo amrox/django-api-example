@@ -30,17 +30,23 @@ This app is already running at [http://django-api-example.herokuapp.com](http://
 
 1. Run the [`example/client.py script`](https://github.com/amrox/django-api-example/blob/master/example/client.py). It should generate an OAuth access token and secret:
 
-    $ python client.py
-    {'oauth_token_secret': 'WBGYYUjasZ2LFsQF', 'oauth_token': 'dac6e92dc42e42e685e39728cf6e523f'}
-    GET http://django-api-example.herokuapp.com/api/v1/ -> {"tasks": {"list_endpoint": "/api/v1/tasks/", "schema": "/api/v1/tasks/schema/"}, "users": {"list_endpoint": "/api/v1/users/", "schema": "/api/v1/users/schema/"}}
+```
+$ python client.py
+{'oauth_token_secret': 'WBGYYUjasZ2LFsQF', 'oauth_token': 'dac6e92dc42e42e685e39728cf6e523f'}
+GET http://django-api-example.herokuapp.com/api/v1/ -> {"tasks": {"list_endpoint": "/api/v1/tasks/", "schema": "/api/v1/tasks/schema/"}, "users": {"list_endpoint": "/api/v1/users/", "schema": "/api/v1/users/schema/"}}
+```
 
 1. Start `oauth-proxy` with the oauth_token and oauth_token_secret from the output of `client.py`:
 
-    $ oauth-proxy --consumer-key=testconsumer --consumer-secret=secret --token=dac6e92dc42e42e685e39728cf6e523f --token-secret=WBGYYUjasZ2LFsQF
-    
+```
+$ oauth-proxy --consumer-key=testconsumer --consumer-secret=secret --token=dac6e92dc42e42e685e39728cf6e523f --token-secret=WBGYYUjasZ2LFsQF
+```
+ 
 1. Get some data via `curl`:
 
-    $ curl -i -x localhost:8001 http://django-api-example.herokuapp.com/api/v1/tasks/
+```
+$ curl -i -x localhost:8001 http://django-api-example.herokuapp.com/api/v1/tasks/
+```
 
 
 # Step-by-step
