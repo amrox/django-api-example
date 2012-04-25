@@ -1,0 +1,80 @@
+[
+  {
+    "model": "auth.group",
+    "fields": {
+      "name": "Basic",
+      "permissions": [
+        37,
+        38,
+        39
+      ]
+    },
+    "pk": 1
+  },
+  {
+    "model": "auth.user",
+    "fields": {
+      "groups": [
+
+      ],
+      "is_staff": true,
+      "last_login": "2012-04-25 00:11:58",
+      "username": "admin",
+      "user_permissions": [
+
+      ],
+      "date_joined": "2012-04-25 00:11:33",
+      "is_active": true,
+      "last_name": "",
+      "password": "sha1$78228$3aeb65439c42442d744a6bd18bb3be6b2c26bcb1",
+      "email": "",
+      "is_superuser": true,
+      "first_name": ""
+    },
+    "pk": 1
+  },
+  {
+    "model": "auth.user",
+    "fields": {
+      "groups": [
+        1
+      ],
+      "is_staff": false,
+      "last_login": "2012-04-25 00:12:45",
+      "username": "test",
+      "user_permissions": [
+
+      ],
+      "date_joined": "2012-04-25 00:12:45",
+      "is_active": true,
+      "last_name": "",
+      "password": "sha1$d528c$f0d836cc4651533653ef689b74a8ecdffd54520d",
+      "email": "",
+      "is_superuser": false,
+      "first_name": ""
+    },
+    "pk": 2
+  },
+  {
+    "model": "oauth_provider.resource",
+    "fields": {
+      "name": "all",
+      "is_readonly": false,
+      "url": "/"
+    },
+    "pk": 1
+  },
+  {
+    "model": "oauth_provider.consumer",
+    "fields": {
+      "name": "Test Consumer",
+      "xauth_allowed": true,
+      "description": "",
+      "key": "consumer",
+      "user": null,
+      "secret": "secret",
+      "status": 2
+    },
+    "pk": 1
+  }
+]
