@@ -28,61 +28,61 @@ This app is already running at [http://django-api-example.herokuapp.com](http://
 
 1. Run the [`example/client.py script`](https://github.com/amrox/django-api-example/blob/master/example/client.py). It should generate an OAuth access token and secret:
 
-	$ python client.py
-	{'oauth_token_secret': 'WBGYYUjasZ2LFsQF', 'oauth_token': 'dac6e92dc42e42e685e39728cf6e523f'}
-	GET http://django-api-example.herokuapp.com/api/v1/ -> {"tasks": {"list_endpoint": "/api/v1/tasks/", "schema": "/api/v1/tasks/schema/"}, "users": {"list_endpoint": "/api/v1/users/", "schema": "/api/v1/users/schema/"}}
+	`$ python client.py`
+	`{'oauth_token_secret': 'WBGYYUjasZ2LFsQF', 'oauth_token': 'dac6e92dc42e42e685e39728cf6e523f'}`
 
 1. Start `oauth-proxy` with the oauth_token and oauth_token_secret from the output of `client.py`:
 
-	$ oauth-proxy --consumer-key=testconsumer --consumer-secret=secret --token=dac6e92dc42e42e685e39728cf6e523f --token-secret=WBGYYUjasZ2LFsQF
+	`$ oauth-proxy --consumer-key=testconsumer --consumer-secret=secret --token=dac6e92dc42e42e685e39728cf6e523f --token-secret=WBGYYUjasZ2LFsQF`
  
 1. Get some data via `curl`:
 
-	$ curl -i -x localhost:8001 http://django-api-example.herokuapp.com/api/v1/tasks/
+	`$ curl -i -x localhost:8001 http://django-api-example.herokuapp.com/api/v1/tasks/`
 
 
 # Deploy your own
 
 1. Create a virtualenv and install requirments
 
-	$ mkvirtualenv django-api-example
-	$ pip install -r requirements.txt
+	`$ mkvirtualenv django-api-example`
+	
+	`$ pip install -r requirements.txt`
 
 1. Create a new app and add the remote.
 
-	$ heroku apps:create <app name>	--stack=cedar
+	`$ heroku apps:create <app name>	--stack=cedar`
 	
-	$ git remote add heroku git@heroku.com:<app name>.git
+	`$ git remote add heroku git@heroku.com:<app name>.git`
 
 1. Add a `DEPLOY_CONFIG`  variable to distinguish between local and production environments.
 
-	$ heroku config:add DEPLOY_CONFIG=production
+	`$ heroku config:add DEPLOY_CONFIG=production`
 	
 1. Push
 
-	$ git push heroku master
+	`$ git push heroku master`
 		
 1. Set up the database.
 
-	$ heroku run django_api_example/manage.py syncdb
+	`$ heroku run django_api_example/manage.py syncdb`
 
 1. Set up initial data with the included test fixture. This creates two users, `admin` and `test`. The passwords are the same as the username. This is obviously absurdly insecure should be changed in production. The test fixture also creates a consumer with key `consumer` and secret `secret`. Again these should be changed. Finally it creates an `all` resource (a django-oauth-plus requirement) and sets up a `Basic` group that has read/write priveledges to `Tasks`.
 
-	$ heroku run  django_api_example/manage.py loaddata django_api_example/fixtures/test_data.json
+	`$ heroku run  django_api_example/manage.py loaddata django_api_example/fixtures/test_data.json`
 
 1. Edit [`example/client.py script`](https://github.com/amrox/django-api-example/blob/master/example/client.py), changing `consumer_key`, `consumer_secret` and `access_token_url` to the appropriate values. Run `example/client.py` to generate an access token and secret.
 
 1. Start `oauth-proxy` with your consumer and access token information
 
-	$ oauth-proxy --consumer-key=consumer --consumer-secret=secret --token=<access token> --token-secret=<access token secret>
+	`$ oauth-proxy --consumer-key=consumer --consumer-secret=secret --token=<access token> --token-secret=<access token secret>`
 
 1. Post some data
 
-	curl -i -x localhost:8001 -X POST --data '{"text":"buy milk"}' -H "Content-Type: application/json" http://your-app.herokuapp.com/api/v1/tasks/
+	`curl -i -x localhost:8001 -X POST --data '{"text":"buy milk"}' -H "Content-Type: application/json" http://your-app.herokuapp.com/api/v1/tasks/`
 
 1. Verify it was created
 
-	curl -i -x localhost:8001 http://django-api-example1.herokuapp.com/api/v1/tasks/
+	`curl -i -x localhost:8001 http://django-api-example1.herokuapp.com/api/v1/tasks/`
 
 
 
