@@ -39,6 +39,7 @@ import urlparse
 consumer_key = 'consumer'
 consumer_secret = 'secret'
 access_token_url = 'http://django-api-example.herokuapp.com/oauth/access_token/'
+#access_token_url = 'http://localhost:8000/oauth/access_token/'
 username = 'test'
 password = 'test'
 
