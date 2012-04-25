@@ -38,10 +38,12 @@ import urlparse
 # You'll probably need to change these.
 consumer_key = 'consumer'
 consumer_secret = 'secret'
-access_token_url = 'http://django-api-example.herokuapp.com/oauth/access_token/'
-#access_token_url = 'http://localhost:8000/oauth/access_token/'
+host = 'django-api-example.herokuapp.com'
+#host = 'localhost:8000'
 username = 'test'
 password = 'test'
+
+access_token_url = 'http://%s/oauth/access_token/' % (host)
 
 consumer = oauth.Consumer(consumer_key, consumer_secret)
 client = oauth.Client(consumer)
@@ -75,7 +77,7 @@ client = oauth.Client(consumer, token)
 
 # Basic Configuration.
 # You'll need to change these.
-protected_url = 'http://django-api-example.herokuapp.com/api/v1/'
+protected_url = 'http://%s/api/v1/tasks/' % (host)
 protected_url_method = 'GET'
 
 resp, content = client.request(protected_url, protected_url_method)
