@@ -35,18 +35,20 @@ import urlparse
 #############################################################################
 
 # Basic Configuration.
-# You'll need to change these.
+# You'll probably need to change these.
 consumer_key = 'consumer'
 consumer_secret = 'secret'
 access_token_url = 'http://django-api-example.herokuapp.com/oauth/access_token/'
+username = 'test'
+password = 'test'
 
 consumer = oauth.Consumer(consumer_key, consumer_secret)
 client = oauth.Client(consumer)
 
 # Set xAuth parameters
 params = dict()
-params['x_auth_username'] = 'test'
-params['x_auth_password'] = 'test'
+params['x_auth_username'] = username
+params['x_auth_password'] = password
 params['x_auth_mode'] = 'client_auth'
 
 resp, token = client.request(access_token_url, method="POST",body=urllib.urlencode(params))
