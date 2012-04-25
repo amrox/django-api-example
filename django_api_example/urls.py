@@ -1,4 +1,5 @@
 from django.conf.urls.defaults import patterns, include, url
+from django.views.generic.simple import direct_to_template
 
 from django.contrib import admin
 admin.autodiscover()
@@ -15,6 +16,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'django_api_example.views.home', name='home'),
     # url(r'^django_api_example/', include('django_api_example.foo.urls')),
 
+    url(r'^$', direct_to_template, {'template': 'index.html'}),
     url(r'^oauth/', include('oauth_provider.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/', include(v1_api.urls)),
