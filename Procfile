@@ -1,1 +1,1 @@
-web: gunicorn django_api_example.wsgi --log-file -
+web: gunicorn --pythonpath django_api_example wsgi --log-file -
