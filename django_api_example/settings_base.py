@@ -155,3 +155,8 @@ LOGGING = {
 
 OAUTH_BLACKLISTED_HOSTNAMES = ['localhost', '127.0.0.1']
 OAUTH_SIGNATURE_METHODS = ['hmac-sha1',]
+
+AUTHENTICATION_BACKENDS = (
+        'django.contrib.auth.backends.ModelBackend',
+        'oauth_provider.backends.XAuthAuthenticationBackend',
+        )

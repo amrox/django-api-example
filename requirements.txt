@@ -1,5 +1,6 @@
 Django==1.3.1
--e hg+https://bitbucket.org/amrox/django-oauth-plus@b009d427ed365b206451147120619c62e28e2006#egg=django_oauth_plus-dev
+#-e hg+https://bitbucket.org/amrox/django-oauth-plus@b009d427ed365b206451147120619c62e28e2006#egg=django_oauth_plus-dev
+django-oauth-plus==2.2.8
 django-tastypie==0.9.11
 mimeparse==0.1.3
 python-dateutil==1.5
