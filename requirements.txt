@@ -8,3 +8,4 @@ wsgiref==0.1.2
 oauth2==1.5.211
 psycopg2==2.4.4
 oauth-proxy==1.0.5
+dj-database-url==0.4.0

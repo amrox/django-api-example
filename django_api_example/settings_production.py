@@ -8,6 +8,7 @@ import posixpath
 # DON'T ACTUALLY SHIP WITH THESE SETTINGS
 # 
 
+
 STATIC_ROOT = os.path.join(PROJECT_ROOT, "static")
 STATIC_URL = "/static/"
 ADMIN_MEDIA_PREFIX = posixpath.join(STATIC_URL, "admin/")
@@ -15,8 +16,7 @@ ADMIN_MEDIA_PREFIX = posixpath.join(STATIC_URL, "admin/")
 DEBUG = False
 SERVE_MEDIA = DEBUG
 
-DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql_psycopg2",
-            }
-        }
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+
