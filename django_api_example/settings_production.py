@@ -14,3 +14,9 @@ ADMIN_MEDIA_PREFIX = posixpath.join(STATIC_URL, "admin/")
 
 DEBUG = False
 SERVE_MEDIA = DEBUG
+
+DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql_psycopg2",
+            }
+        }
