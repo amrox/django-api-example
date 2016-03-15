@@ -4,7 +4,7 @@ import posixpath
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '../data/db.sqlite',
+        'NAME':  os.path.join(PROJECT_ROOT, '../data/db.sqlite'),
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
