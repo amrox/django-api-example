@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath django_api_example wsgi --log-file -
+web: sh -c 'cd ./django_api_example/ && ./manage.py runserver'
